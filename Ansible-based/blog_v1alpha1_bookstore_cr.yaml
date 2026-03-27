@@ -1,0 +1,20 @@
+apiVersion: blog.xxx.com/v1alpha1
+kind: BookStore
+metadata:
+  name: my-bookstore
+spec:
+  image:
+    app:
+      repository: akash125/pyapp
+      tag: latest
+      pullPolicy: IfNotPresent
+    mongodb:
+      repository: mongo 
+      tag: latest
+      pullPolicy: IfNotPresent
+  
+  service:
+    app:
+      type: LoadBalancer
+    mongodb: 
+      type: ClusterIP
